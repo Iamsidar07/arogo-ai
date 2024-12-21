@@ -15,6 +15,7 @@ app.use(
     methods: ["GET", "POST", "DELETE", "PUT"],
   }),
 );
+
 app.use(express.json());
 
 app.use("/v1", routes);

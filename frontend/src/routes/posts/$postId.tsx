@@ -45,8 +45,9 @@ function Post() {
       </header>
 
       <section className="bg-gray-50 rounded-xl p-6 border">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
-          <span className="animate-bounce">🦊</span> AI Summary
+        <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <img src="/icon.png" alt="logo" className="w-8 h-8 animate-bounce" />
+          AI Summary
         </h2>
         <div className="text-gray-700">
           {isLoading && (

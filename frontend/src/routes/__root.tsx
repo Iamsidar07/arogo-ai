@@ -8,9 +8,9 @@ export const Route = createRootRoute({
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             to="/"
-            className="text-lg text-gray-800 hover:text-gray-600 transition-colors [&.active]:font-bold"
+            className="text-lg text-gray-800 hover:text-gray-600 transition-colors font-bold flex items-center gap-2"
           >
-            🦊
+            <img src="/icon.png" alt="logo" className="w-8 h-8" />
             Arogo AI
           </Link>
           <Link
