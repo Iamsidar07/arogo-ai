@@ -1,7 +1,6 @@
 import express, { Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 import config from "./config";
 import routes from "./routes";
 
@@ -11,7 +10,7 @@ const app: Express = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", config.frontendUrl!],
+    origin:"https://arogo-ai-mauve.vercel.app/",
     methods: ["GET", "POST", "DELETE", "PUT"],
   }),
 );
