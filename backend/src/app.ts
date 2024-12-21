@@ -10,7 +10,7 @@ const app: Express = express();
 
 app.use(
   cors({
-    origin: "https://arogo-ai-mauve.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "DELETE", "PUT"],
   }),
 );
