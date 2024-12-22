@@ -1,18 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
-import api from "../../lib/axios";
-import { usePostSummary } from "../../hooks/usePostSummary";
-import { Editor } from "../../components/Editor";
-import { useRef } from "react";
-import EditorJS from "@editorjs/editorjs";
-import { PostViewSkeleton } from "../../components/PostViewSkeleton";
+import api from '../../lib/axios'
+import { usePostSummary } from '../../hooks/usePostSummary'
+import { Editor } from '../../components/Editor'
+import { useRef } from 'react'
+import EditorJS from '@editorjs/editorjs'
+import { PostViewSkeleton } from '../../components/PostViewSkeleton'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute("/posts/$postId")({
+export const Route = createFileRoute('/posts/$postId')({
   component: Post,
   loader: async ({ params }) => {
-    const data = await api.get(`/posts/${params.postId}`);
+    const data = await api.get(`/posts/${params.postId}`)
     return {
       post: data.data,
-    };
+    }
   },
   pendingComponent: () => <PostViewSkeleton />,
   errorComponent: () => (
@@ -20,12 +20,12 @@ export const Route = createFileRoute("/posts/$postId")({
       <div className="text-red-500">Something went wrong</div>
     </div>
   ),
-});
+})
 
 function Post() {
-  const ref = useRef<EditorJS>(null);
-  const { post } = Route.useLoaderData();
-  const { data, isLoading, isError } = usePostSummary(post._id);
+  const ref = useRef<EditorJS>(null)
+  const { post } = Route.useLoaderData()
+  const { data, isLoading, isError } = usePostSummary(post._id)
 
   return (
     <article className="max-w-2xl mx-auto space-y-8">
@@ -35,10 +35,10 @@ function Post() {
         </h1>
         <div className="flex items-center text-sm text-gray-500">
           <time dateTime={post.createdAt}>
-            {new Date(post.createdAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
+            {new Date(post.createdAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
             })}
           </time>
         </div>
@@ -67,9 +67,9 @@ function Post() {
         </div>
       </section>
 
-      <Editor ref={ref} defaultValue={JSON.parse(post.body || "")} isViewOnly />
+      <Editor ref={ref} defaultValue={JSON.parse(post.body || '')} isViewOnly />
     </article>
-  );
+  )
 }
 
-export default Post;
+export default Post
